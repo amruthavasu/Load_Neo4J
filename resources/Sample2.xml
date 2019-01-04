@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Policy PolicyId="ID_3" RuleCombiningAlgId="identifier:rule-combining-algorithm:deny-overrides">
+	<Target>
+		<Resources>
+			<ResourceMatch MatchId="urn:oasis:names:xacml:1.0:function:string-equal">
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">File3</AttributeValue>
+				<ResourceAttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+					AttributeId="urn:oasis:names:tc:xacml:1.0:resource:resource-id"/>
+			</ResourceMatch>
+		</Resources>
+		<Actions>
+			<ActionMatch MatchId="urn:oasis:names:xacml:1.0:function:string-equal">
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">Execute</AttributeValue>
+				<ResourceAttributeDesignator DataType="http://www.w3.org/2001/XMLSchema#string"
+					AttributeId="urn:oasis:names:tc:xacml:1.0:action:action-id"/>
+			</ActionMatch>
+		</Actions>
+	</Target>
+	<Rule RuleId="Rule4" Effect="Permit">
+		<Condition>
+			<Apply FunctionId="urn:oasis:names:xacml:1.0:function:integer-greater-than-or-equal">
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#integer">Kenneth Neal</AttributeValue>
+				<AttributeDesignator MustBePresent="false"
+					Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+					AttributeId="Manager"
+					DataType="http://www.w3.org/2001/XMLSchema#integer" />
+			</Apply>
+		</Condition>
+		
+		<Condition>
+			<Apply FunctionId="urn:oasis:names:xacml:1.0:function:string-equal">
+				<AttributeValue DataType="http://www.w3.org/2001/XMLSchema#string">HR</AttributeValue>
+				<AttributeDesignator MustBePresent="false"
+					Category="urn:oasis:names:tc:xacml:1.0:subject-category:access-subject"
+					AttributeId="Department"
+					DataType="http://www.w3.org/2001/XMLSchema#string" />
+			</Apply>
+		</Condition>
+	</Rule>
+	<Rule RuleId="Rule5" Effect="Deny" />
+</Policy>
